@@ -76,3 +76,70 @@ console.log(h1.classList.contains('add-h1')); // false
 h1.classList.toggle('add-h1');
 
 console.log('-------------------------');
+
+// #4. 다른 요소 찾기 (다른 노드에 접근)
+// 계층 구조 (조상, 부모, 형제, 자식, 자손)
+
+const friends = document.querySelector('#friends');
+const hoon = document.querySelector('#hoon');
+
+// 1. 자식 요소 (자손)
+console.log(friends.children); // 유사 배열, 자식 모두 선택 // [li, li#hoon, li, li, li, hoon: li#hoon]
+console.log(friends.children[0]); // 인덱스 접근
+
+// 2. 부모 요소
+console.log(hoon.parentNode); // ul
+console.log(hoon.parentNode.parentNode); // body // 조상
+
+// 3. 형제 요소
+console.log(hoon.previousElementSibling); // 이전 <li>짱구</li>
+console.log(hoon.nextElementSibling); // 다음 <li>철수</li>
+console.log(hoon.nextElementSibling.nextElementSibling); // 다음 다음 // <li>맹구</li>
+
+
+console.log('-------------------------');
+
+
+// #5. 새로운 요소 생성
+const container = document.querySelector('.container');
+const p = document.createElement('p'); // 요소 생성
+
+console.log('css 스타일 전', p); // js로 <p></p> 태그 생성
+
+p.innerText = '새로 만든 태그닷!!!!';
+p.style.fontWeight = 700;
+p.style.backgroundColor = 'limegreen';
+
+console.log('css 스타일 후', p);
+
+// 6. 요소 추가
+// x.append(y): x 요소의 맨 마지막 자식으로 y 요소가 추가
+// x.appendChild(y): x 요소의 맨 마지막 자식으로 y 요소가 추가
+div1.append(p);
+
+const p2 = document.createElement('p');
+const p3 = document.createElement('p');
+
+p2.innerHTML = 'p2';
+p3.innerHTML = 'p3';
+// console.log(p2);
+
+p2.classList.add('p-2');
+p3.classList.add('p-3');
+
+container.append(p2, p3); // append는 여러개 추가 가능
+
+// x.prepend(y): x요소의 맨 처음 자식으로 y요소가 추가
+// x.before(y): x요소의 바로 이전 형제 요소로 y요소가 추가
+// x.after(y): x요소의 바로 다음 형제 요소로 y요소가 추가
+
+const li1 = document.createElement('li');
+li1.textContent = '흰둥이';
+friends.prepend(li1);
+
+const li0 = document.createElement('li');
+li0.innerHTML = '<b>짱구의 친구들 소개</b>';
+friends.prepend(li0);
+
+hoon.before(li1); 
+hoon.after(li1);
