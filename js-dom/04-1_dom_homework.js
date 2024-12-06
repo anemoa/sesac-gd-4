@@ -15,12 +15,26 @@ const todo = document.querySelectorAll('ul > .todo');
 const done = document.querySelectorAll('ul > .done');
 
 
+// todo.forEach( (list) => {
+// 	list.classList.toggle('todo');
+// 	list.classList.toggle('done');
+// });
+
+// done.forEach((list) => {
+// 	list.classList.toggle('done');
+// 	list.classList.toggle('todo');
+// });
+
 todo.forEach( (list) => {
-	list.classList.toggle('todo');
-	list.classList.toggle('done');
+	if(list.classList.contains('todo') ){
+		list.classList.remove('todo');
+		list.classList.add('done');
+	}
 });
 
-done.forEach((list) => {
-	list.classList.toggle('done');
-	list.classList.toggle('todo');
+done.forEach( (list) => {
+	if(list.classList.contains('done')){
+		list.classList.remove('done');
+		list.classList.add('todo');
+	}
 });

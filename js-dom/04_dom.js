@@ -133,13 +133,32 @@ container.append(p2, p3); // append는 여러개 추가 가능
 // x.before(y): x요소의 바로 이전 형제 요소로 y요소가 추가
 // x.after(y): x요소의 바로 다음 형제 요소로 y요소가 추가
 
-const li1 = document.createElement('li');
-li1.textContent = '흰둥이';
-friends.prepend(li1);
+// const li1 = document.createElement('li');
+// li1.textContent = '흰둥이';
+// friends.prepend(li1);
 
-const li0 = document.createElement('li');
-li0.innerHTML = '<b>짱구의 친구들 소개</b>';
-friends.prepend(li0);
+// const li0 = document.createElement('li');
+// li0.innerHTML = '<b>짱구의 친구들 소개</b>';
+// friends.prepend(li0);
 
-hoon.before(li1); 
-hoon.after(li1);
+// hoon.before(li1); 
+// hoon.after(li1);
+
+// 7. 요소 삭제
+// x.romove(): x 요소 자체를 삭제
+// x.romoveChild(y): x의 자식 요소 y 삭제
+// 둘 다 메모리에서 즉시 삭제되지 않으니, 참조를 유히자면 재활용이 가능하다.
+const firstLi = document.querySelector('li');
+console.log(firstLi);
+
+const ul = firstLi.parentNode;
+console.log('ul >>>', ul);
+
+// ul.remove(); // ul 태그 자체를 삭제함
+
+// 참조를 유지하면서 재활용한 방법!
+firstLi.remove(); // 짱구만 삭제
+div1.appendChild(firstLi); // js의 특성인 느슨한 언어가 메모리를 바로 삭제하진 않아 붙여넣기 가능.
+
+// ul.removeChild(firstLi); // 짱구만 삭제
+// div1.appendChild(firstLi); // 짱구를 잘라내서 div1에 붙임
