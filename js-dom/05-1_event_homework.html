@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>랜덤 색상 생성기</title>
+    <!-- <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      button {
+        cursor: pointer;
+      }
+    </style> -->
+	<script src="./05-1_event_homework.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Create Random Color</h1>
+      <h2>rgb(255, 255, 255)</h2>
+      <button>Create</button>
+    </div>
+
+	<hr>
+
+	<h1>댓글 등록하기</h1>
+    <form>
+      <label for="userid">아이디</label>
+      <input type="text" id="userid" name="userid" />
+      <label for="comment">댓글</label>
+      <input type="text" id="comment" name="comment" />
+      <button type="submit">등록</button>
+    </form>
+    <ul class="comment-list"></ul>
+
+	<hr>
+	<h1>계산기 만들기</h1>
+    <form>
+      <label for="value1">값1:</label>
+      <input type="number" id="value1" /><br />
+      <label for="value2">값2:</label>
+      <input type="number" id="value2" /><br />
+      <label for="operator">연산자: </label>
+      <input type="text" id="operator" /><br />
+      <button type="button" onclick="cal();">계산</button>
+      <button type="button" onclick="resetInput();">초기화</button><br /><br />
+      <label for="result">결과: </label>
+      <input type="text" id="result" disabled="true" />
+      <!-- 
+        disabled 속성은 해당 input을 비활성화 하여, 사용자가 클릭할 수 없게 하는 속성입니다.
+        계산의 결과 값이 사용자에 의해 변경되는 것을 막기 위해 "disabled" 속성을 추가했습니다.
+      -->
+    </form>
+
+	<hr>
+
+	<h1>여기는 방명록!!</h1>
+    <form>
+      <label for="writer">작성자</label>
+      <input type="text" id="writer" autocomplete="off" />
+      <br />
+      <br />
+
+      <label for="content">내용</label>
+      <input type="text" id="content" style="width: 500px" autocomplete="off" />
+      <br />
+      <br />
+
+      <button id="writeBtn" type="button" onclick="writeNote();">등록</button>
+    </form>
+
+    <br />
+    <br />
+
+    <table id="table" border="1" cellpadding="10" cellspacing="1">
+      <tr>
+        <th>작성자</th>
+        <th>내용</th>
+        <th>작성일</th>
+      </tr>
+      <!-- 
+        코드 추가 예시
+        <tr>
+          <td>홍길동</td>
+          <td>하이</td>
+          <td>2022-10-05 12:34</td>
+        </tr>
+      -->
+    </table>
+
+
+  </body>
+</html>
