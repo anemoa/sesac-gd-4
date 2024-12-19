@@ -162,5 +162,4 @@ add(4, 3).then((res) => {
 	console.log(res);
 }).catch((error) => {
 	console.log(error);
-})
-
+});

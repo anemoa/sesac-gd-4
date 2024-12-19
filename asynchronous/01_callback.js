@@ -53,32 +53,32 @@
 // #3. 비동기처리 방법 v.1
 // : 콜백함수
 // - 다른 함수의 실행이 끝난 뒤에 실행되는 함수
-// - js에서 어떤 함수의 
+// - js에서 어떤 함수의 매개변수로 대입되는 함수
 
 
-// let product;
-// let price;
+let product;
+let price;
 
-// function goMart(){
-// 	console.log('마트에 가서 음료 사오기');
-// }
+function goMart(){
+	console.log('마트에 가서 음료 사오기');
+}
 
-// function pickDrink(callback){
-// 	// * callback 매개 변수: 콜백함수가 들어올 예정이라는 뜻 = pay(product, price)
-// 	setTimeout(function(){
-// 		console.log('고민끝');
-// 		product = '닥터페퍼';
-// 		price = 5000;
-// 		callback(product, price);
-// 	}, 2000);
-// }
+function pickDrink(callback){
+	// * callback 매개 변수: 콜백함수가 들어올 예정이라는 뜻 = pay(product, price)
+	setTimeout(function(){
+		console.log('고민끝');
+		product = '닥터페퍼';
+		price = 5000;
+		callback(product, price);
+	}, 2000);
+}
 
-// function pay(product, price){
-// 	console.log(`상품: ${product}, 가격: ${price}`);	
-// }
+function pay(product, price){
+	console.log(`상품: ${product}, 가격: ${price}`);	
+}
 
-// goMart();
-// pickDrink(pay);
+goMart();
+pickDrink(pay);
 
 ////////////////////////////////////////////////
 // #4. 콜백 지옥 Ex
