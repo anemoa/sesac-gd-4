@@ -4,6 +4,8 @@ import FunctionComponent from './FunctionComponent';
 import Compo2 from './Compo2';
 import NewCompo from './NewCompo';
 import Book from './Book';
+import Button from './Button';
+import MultiChild from './MultiChild';
 
 function App() {
     return (
@@ -23,7 +25,17 @@ function App() {
 			{/* <NewCompo food='분식' />
 			<hr />
 			<NewCompo /> */}
-			<Book title='이것은 책' author='정아무개' price={13500} type='소설' />
+			{/* <Book title='이것은 책' author='정아무개' price={13500} type='소설' /> */}
+			<Button link='https://www.naver.com'>
+				NAVER
+			</Button>
+			<Button />
+
+			<MultiChild>
+				<b>다중자식</b>
+				<p>다중요소</p>
+				<div>재미지다</div>
+			</MultiChild>
         </div>
     );
 }
