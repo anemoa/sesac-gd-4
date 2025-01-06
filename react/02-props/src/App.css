@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+
+.book-layout{
+	width: 500px;
+	height: 600px;
+	padding: 20px;
+	background-color: orange;
+}
+
+.book-layout img{
+	width: 100%;
+}
+
+.book-layout h1{
+	color: green;
+}
+
+.book-layout h2, p{
+	text-align: left;
+}
