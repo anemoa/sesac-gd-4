@@ -1,30 +1,34 @@
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 
 export const SayFunction = () => {
-    // console.log(useState('welcome'));
+    // console.log(useState('Welcome')); // 초기 상태 값 설정 후, 반환 값 출력 // 임시 저장 용도
 
-    const [msg, setMsg] = useState('welcome');
+    const [message, setMessage] = useState('welcome');
+    // message: 현재 상태
+    // setMessage() : message state 값을 바꾸는 함수.
 
     const onClickEnter = () => {
-        setMsg('안녕하삼');
+        setMessage('안녕하세요!');
     };
 
     const onClickLeave = () => {
-        setMsg('잘가라우');
+        setMessage('안녕히가세요~');
     };
 
     const handleClick = () => {
-        setMsg((currentMsg) => {
-            return currentMsg === 'welcome' ? '환영쓰' : 'hihi';
+        // currentMessage = 호출 시점의 message 현재 상태 값 나타냄.
+        // ㄴ setMessage에 함수형 업데이트를 위한 콜백 함수가 전달됨.
+        setMessage((currentMessage) => {
+            return currentMessage === 'welcome' ? '환영합니다' : 'Hi';
         });
     };
     return (
-        <div>
+        <>
             <div>SayFunction</div>
             <button onClick={onClickEnter}>입장</button>
             <button onClick={onClickLeave}>퇴장</button>
             <button onClick={handleClick}>텍스트 바꾸기</button>
-            <h1>{msg}</h1>
-        </div>
+            <h1>{message}</h1>
+        </>
     );
 };

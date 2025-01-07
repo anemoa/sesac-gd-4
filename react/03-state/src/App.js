@@ -1,20 +1,15 @@
 import './App.css';
-import ClassCompo from './ClassCompo';
 import CounterClass from './CounterClass';
 import { CounterFunction } from './CounterFunction';
-import FuncCompo from './FuncCompo';
-import { SayFunction } from './SayFunction';
 
 function App() {
-  return (
-    <div className="App">
-		{/* <CounterClass /> */}
-		{/* <CounterFunction value={'plus 1'} /> */}
-		{/* <SayFunction /> */}
-		{/* <ClassCompo /> */}
-		<FuncCompo />
-    </div>
-  );
+    return (
+        <div className="App">
+            <CounterClass></CounterClass>
+            <hr />
+            <CounterFunction value={'Plus 1'}></CounterFunction>
+        </div>
+    );
 }
 
 export default App;
