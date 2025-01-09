@@ -63,15 +63,36 @@ export default function Alphabet() {
     // # 3. 글자 삭제 기능
     const deleteAlpha = (targetId) => {
         console.log(targetId); // targetId: 더블클릭 하여 삭제될 요소의 key id
-		
-		// 삭제할 아이디와 일치하지 않는 새로운 배열 생성
-		const newAlpha = alphabet.filter((alpha) => {
-			return alpha.id !== targetId; // id가 4일 경우 [1, 2, 3, 5] 
-		})
 
-		setAlphabet(newAlpha);
+        // 삭제할 아이디와 일치하지 않는 새로운 배열 생성
+        const newAlpha = alphabet.filter((alpha) => {
+            return alpha.id !== targetId; // id가 4일 경우 [1, 2, 3, 5]
+        });
+
+        setAlphabet(newAlpha);
     };
 
+
+	// # 4. 이벤트 위임 방식
+
+	const handleDoubleClick = (e) => {
+		// 이벤트 핸들러가 ol 요소에 설정되어 있기 때문에,
+		// - 이벤트 위임을 통해 입네트가 발생한 실제 요소가 무엇인지 확인하고,
+		//   li 태그인 경우에만 삭제 기능을 실행토록 하기 위함
+
+		// 이벤트가 발생한 요소가 li 태그인지 확인
+		if(e.target.tagName === "LI"){
+			console.log("e.target >>", e.target);
+		
+			console.log("e.target.id >>", e.target.id);
+			console.log("타입: ", typeof e.target.id);
+			// id 속성으로 가져오는 값ㅇ느 "문자열"로 반환
+
+			const targetId = Number(e.target.id);
+			deleteAlpha(targetId);
+
+		}
+	}
     return (
         <>
             <h1>Map & Filter</h1>
@@ -110,6 +131,21 @@ export default function Alphabet() {
                         <li
                             key={value.id}
                             onDoubleClick={() => deleteAlpha(value.id)}
+                        >
+                            {value.alpha}
+                        </li>
+                    );
+                })}
+            </ol>
+
+            {/* 4. 이벤트 위임 방식 적용 - 효율성 증가! */}
+            <h2>이벤트 위임 방식</h2>
+            <ol onDoubleClick={handleDoubleClick}>
+                {alphabet.map((value) => {
+                    return (
+                        <li
+                            key={value.id}
+                            id={value.id}
                         >
                             {value.alpha}
                         </li>
