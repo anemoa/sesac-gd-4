@@ -6,17 +6,19 @@ import ClassComponent from './ClassComponent';
 import TotalEventHandler from './component/ex/TotalEventHandler';
 import {FuncComponent} from './FuncComponent';
 import SyntheticEvent from './SyntheticEvent';
+import Total2 from './component/ex/Total2';
 
 function App() {
   return (
     <div className="App">
 		{/* <SyntheticEvent /> */}
 		{/* <FuncComponent /> */}
-		<ClassComponent />
+		{/* <ClassComponent /> */}
 		{/* <HandlerEx /> */}
 		{/* <ColorHandler /> */}
 		{/* <DissapearHandler /> */}
-		<TotalEventHandler />
+		{/* <TotalEventHandler /> */}
+		<Total2 />
     </div>
   );
 }
