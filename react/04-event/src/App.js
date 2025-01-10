@@ -18,7 +18,7 @@ function App() {
 		{/* <ColorHandler /> */}
 		{/* <DissapearHandler /> */}
 		{/* <TotalEventHandler /> */}
-		<Total2 />
+		{/* <Total2 /> */}
     </div>
   );
 }

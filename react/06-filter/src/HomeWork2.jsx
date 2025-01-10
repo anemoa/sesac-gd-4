@@ -1,10 +1,13 @@
-import React, { use, useState } from 'react';
+import React, { use, useRef, useState } from 'react';
 import './HomeWork2.css';
 
 const HomeWork2 = () => {
     const [nameInputVal, setNameInputVal] = useState('');
     const [titleInputVal, setTitleInputVal] = useState('');
     const [lists, setLists] = useState([]);
+
+	const nameRef = useRef();
+	const titleRef = useRef();
 
     // 검색 상태 관리
     const [searchType, setSearchType] = useState('name');
@@ -13,6 +16,16 @@ const HomeWork2 = () => {
 
     const addList = (e) => {
         e.preventDefault();
+
+		if(! nameInputVal.trim()){
+			nameRef.current.focus();
+			return;
+		}
+		if(!titleInputVal.trim()){
+			titleRef.current.focus();
+			return;
+		}
+
         const newLists = lists.concat({
             id: lists.length + 1,
             title: titleInputVal,
@@ -60,6 +73,7 @@ const HomeWork2 = () => {
                     onChange={(e) => {
                         setNameInputVal(e.target.value);
                     }}
+					ref={nameRef}
                 />
 
                 <label htmlFor='title'>제목: </label>
@@ -71,6 +85,7 @@ const HomeWork2 = () => {
                     onChange={(e) => {
                         setTitleInputVal(e.target.value);
                     }}
+					ref={titleRef}
                 />
                 <button onClick={addList}>작성</button>
             </form>

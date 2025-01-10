@@ -11,8 +11,8 @@ function App() {
 		{/* <Basic /> */}
 		{/* <Alphabet /> */}
 		{/* <HomeWork /> */}
-		{/* <HomeWork2 /> */}
-		<Retry />
+		<HomeWork2 />
+		{/* <Retry /> */}
     </div>
   );
 }
