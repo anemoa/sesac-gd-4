@@ -7,10 +7,10 @@ import RefSample4 from './RefSample4';
 function App() {
   return (
     <div className="App">
-		{/* <RefSample1 /> */}
+		<RefSample1 />
 		{/* <RefSample2 /> */}
 		{/* <RefSample3 /> */}
-		<RefSample4 />
+		{/* <RefSample4 /> */}
     </div>
   );
 }

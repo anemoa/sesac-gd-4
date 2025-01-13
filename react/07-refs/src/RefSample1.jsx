@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 // useRef Hook
 // - 1. DOM 요소에 접근
@@ -27,4 +27,4 @@ const RefSample1 = () => {
   )
 }
 
-export default RefSample1
+export default RefSample1;
