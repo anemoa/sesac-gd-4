@@ -62,4 +62,25 @@ const UseCallbackEx2 = ({ postId }) => {
     );
 };
 
+/**
+ * useCallback 훅을 사용하여 getPost 함수를 메모이제이션 했기 때문에
+ * getPost 함수는 postId가 변경되지 않는 한 "동일한 참조값"을 유지한다.
+ * 
+ * 하지만 useEffect의 의존성 배열에 getPost함수를 넣으면
+ * getPost 함수가 변경될 때마다 useEffect가 재실행 되므로
+ * 의존성 배열에 무엇을 넣어야 하는지 신경 써야 함
+ * 
+ * 우리가 원하는 것은 postId가 변결될 때만 getPost가 호출되도록 하는것
+ * 따라서 useEffect의 의존성 배열에는 count 대신 getPost를 넣어야 함
+ * 
+ * getPost기 메모이제이션 된 함수이기 때문에
+ * 실제로 postId가 변경될 때에만 getPost가 다시 생성되어 useEffect가 트리거 된다
+ * 
+ * 이렇게 하면 postId가 변경될 때마다 getPost 함수가 새로 생성되고(= 새로운 참조값 할당)
+ * useEffect가 호출되면서 API 요청이 이루어짐.
+ * 
+ * ==> 우리는 필요한 순간에만 API 요청을 할 수 있게 제어할 수 있는 것!
+ * 
+ */
+
 export default UseCallbackEx2;
