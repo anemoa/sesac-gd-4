@@ -1,7 +1,10 @@
 import './App.css';
+import ThemeMiddle from './components/ThemeMiddle';
+import ThemeProvider from './components/ThemeProvider';
 import UseCallbackEx from './components/UseCallbackEx';
 import UseCallbackEx2 from './components/UseCallbackEx2';
 import UseMemoEx from './components/UseMemoEx';
+import UseReducerEx from './components/UseReducerEx';
 import ProductFilter from './ProductFilter';
 import ShoppingCartApp from './ShoppingCartApp';
 
@@ -13,7 +16,11 @@ function App() {
             {/* <UseCallbackEx /> */}
 			{/* <UseCallbackEx2 postId={15}/> */}
 			{/* <ProductFilter /> */}
-			<ShoppingCartApp />
+			{/* <ShoppingCartApp /> */}
+			{/* <UseReducerEx /> */}
+			<ThemeProvider>
+				<ThemeMiddle></ThemeMiddle>
+			</ThemeProvider>
         </div>
     );
 }
