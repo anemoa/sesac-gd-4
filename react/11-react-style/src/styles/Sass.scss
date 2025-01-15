@@ -1,0 +1,89 @@
+// 파일명 대문자
+// - 해당 파일이 특정 react 컴포넌트와 밀접하게 연관된다는 것을 나타냄
+
+// * CSS 전처리기 주요 기능
+@import './variables';
+@import './utils';
+
+// # 1. 변수
+// $color-first: red;
+// $color-second: green;
+// $color-third: violet;
+// $animation-duration: 400ms;
+// $breakpoint-sm: 360px;
+
+
+// # 3. 믹스인(함수) 선언(정의) 인자 없어도 됨
+// @mixin box($size){
+// 	width: $size;
+// 	height: $size;
+// }
+// // # 4-3. 믹스인 - 여러개의 인자
+// @mixin text-style($color, $font-size, $font-weight){
+// 	color: $color;
+// 	font-size: $font-size;
+// 	font-weight: $font-weight;
+// }
+
+
+// # 2. 중첩: 부모 자식 표현 가능
+
+.container{
+	display: flex;
+
+	.box{
+		// 4-2. 믹스인 사용(호출)
+		@include box(150px);
+		// width: 100px;
+		// height: 100px;
+		
+		// & : 부모 선택자 참조해서 치환
+		// &.red = .box.red
+		&.red{
+			background-color: $color-first;
+			// # 4-3
+			@include text-style(blue, 20px, bold)
+		}
+		
+		&.green{
+			background-color: $color-second;
+			@include text-style(white, 40px, light)
+		}
+		
+		&.violet{
+			background-color: $color-third;
+			@include text-style(lime, 33px, bold)
+		}
+
+		&:hover{
+			background-color: pink;
+
+			// # 3. 연산 가능
+			$box-animation: $animation-duration * 5;
+			transform: translateY(20px);
+			transition: transform $box-animation;
+		}
+	}
+}
+
+.btn{
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid black;
+}
+
+.btn-primary{
+	// # 5. 상속: 기존 선택자 스타일을 다른 선택자에 상속
+	@extend .btn;
+	color: hotpink;
+	background-color: yellowgreen;
+}
+
+// # 6. 문자열 보간 방법
+// #{} 구문을 사용하여 (표현식, 변수의 값)을 문자열 내에 삽입해서 동적으로 생성하는 방법
+@media (max-width: #{$breakpoint-sm}) {
+	// @media (max-width: 360px)
+	.container{
+		flex-direction: column;
+	}
+}

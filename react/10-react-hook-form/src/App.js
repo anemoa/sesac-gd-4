@@ -1,11 +1,12 @@
 import './App.css';
 import Form from './Form';
+import FormTest from './FormTest';
 
 function App() {
   return (
     <div className="App">
-		sdfsdsdfsdf`0`
-		<Form />
+		{/* <Form /> */}
+		<FormTest />
     </div>
   );
 }
