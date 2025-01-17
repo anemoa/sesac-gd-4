@@ -5,11 +5,11 @@ import { CHANGE } from "../actions/isVisibleAction";
 const initialState = true;
 
 // #2. 리듀서 작성
-const isiVisibleReducer = (state = initialState, action) => {
+const isVisibleReducer = (state = initialState, action) => {
 	if(action.type === CHANGE){
 		return !state;
 	}
 	return state;
 }
 
-export default isiVisibleReducer;
+export default isVisibleReducer;
