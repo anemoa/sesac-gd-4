@@ -310,3 +310,43 @@ const Ok: Drama = {
     gender: 'F',
 };
 console.log(Ok);
+
+
+
+let olimpic_newgame: readonly [{name: string, type: string}, boolean];
+
+olimpic_newgame = [
+	{
+	  name: "쇼트트랙",
+	  type: "혼성 계주",
+	},
+	true
+  ];
+  // olimpic_newgame[1]=false;
+  console.log(olimpic_newgame);
+
+
+
+interface Game2{
+	title: string;
+	price: number;
+	desc?: string;
+	category: string;
+	platform: string;
+}
+
+// 아래 나와 있는 heroGame_A 와 heroGame_B 를 만족할 수 있는 interface Game 만들어보기
+let heroGame_A: Game2 = {
+	title: 'DC 언체인드',
+	price: 50000,
+	desc: 'DC 히어로 & 빌런 각각의 개성은 물론, 액션의 재미까지!',
+	category: '액션',
+	platform: '모바일',
+  }
+  
+  let heroGame_B: Game2 = {
+	title: 'MARVEL 퓨처파이트',
+	price: 65000,
+	category: '롤플레잉',
+	platform: '모바일',
+  }
