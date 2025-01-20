@@ -3,6 +3,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from './counterSlice';
 import isVisibleReducer from "./isVisibleSlice";
+import bankReducer from "./BankSlice";
 
 // # configureStore
 // - store 생성
@@ -13,6 +14,7 @@ const store = configureStore({
 	reducer: {
 		counter: counterReducer, // "counter" 라는 counterReducer로 관리. // 변수명 마음대로 이건 원래 counterSlice.reducer임
 		isVisible: isVisibleReducer,
+		bank: bankReducer,
 	}
 });
 
